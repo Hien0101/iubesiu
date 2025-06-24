@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoa Sen Nở - Cánh To Hơn 🌸</title>
+  <style>
+    body {
+      background: linear-gradient(to top right, #ffe0ec, #fdfbfb);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    svg {
+      margin-top: 40px;
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+    }
+
+    .petal-group {
+      transform-origin: 50% 50%;
+      transition: transform 1s ease-in-out;
+    }
+
+    .bloom .r1 { transform: rotate(0deg) scale(1.2); }
+    .bloom .r2 { transform: rotate(45deg) scale(1.2); }
+    .bloom .r3 { transform: rotate(90deg) scale(1.2); }
+    .bloom .r4 { transform: rotate(135deg) scale(1.2); }
+    .bloom .r5 { transform: rotate(180deg) scale(1.2); }
+    .bloom .r6 { transform: rotate(225deg) scale(1.2); }
+    .bloom .r7 { transform: rotate(270deg) scale(1.2); }
+    .bloom .r8 { transform: rotate(315deg) scale(1.2); }
+
+    .love-note {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #ff3399;
+      font-weight: bold;
+      display: none;
+      animation: fadeInZoom 0.5s ease-in-out, pulse 2s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes fadeInZoom {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .message {
+      font-size: 24px;
+      color: #d6336c;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 1em;
+      user-select: none;
+      z-index: 9999;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="message">
+  Gửi em yêu của anh 💕<br>
+  Chúc em thi thật tốt nhé!<br>
+  Anh luôn tin bé làm được, cố lên nhaa! 💪
+</div>
+
+<svg id="lotus" viewBox="0 0 100 100">
+  <g id="petals">
+    <g class="petal-group r1"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff99cc"/></g>
+    <g class="petal-group r2"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff85c1"/></g>
+    <g class="petal-group r3"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff69b4"/></g>
+    <g class="petal-group r4"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff4da6"/></g>
+    <g class="petal-group r5"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff3399"/></g>
+    <g class="petal-group r6"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff1a8c"/></g>
+    <g class="petal-group r7"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#e60073"/></g>
+    <g class="petal-group r8"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#cc0066"/></g>
+    <circle cx="50" cy="52" r="6" fill="#ffd700" />
+  </g>
+</svg>
+
+<div class="love-note" id="loveNote">
+  Bé iu của anh ơi, hoa nở là tình anh nở 💗 cố lên nha bé!
+</div>
+
+<script>
+  const lotus = document.getElementById('lotus');
+  const petals = document.getElementById('petals');
+  const note = document.getElementById('loveNote');
+
+  lotus.addEventListener('click', () => {
+    petals.classList.add('bloom');
+    note.style.display = 'block';
+  });
+
+  // Hiệu ứng tuyết rơi ❄️
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.textContent = '❄️';
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 5000);
+  }
+  setInterval(createSnowflake, 200);
+</script>
+
+</body>
+</html>
