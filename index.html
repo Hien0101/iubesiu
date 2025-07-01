@@ -1,136 +1,286 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Hoa Sen Nở - Cánh To Hơn 🌸</title>
-  <style>
-    body {
-      background: linear-gradient(to top right, #ffe0ec, #fdfbfb);
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tớ Thích Cậu 💘</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-pink: #ff69b4;
+        --main-pink-dark: #ff1493;
+        --bg-gradient: linear-gradient(135deg, #ffe6f7, #ccf2ff);
+        --text-color: #ff4081;
+      }
 
-    svg {
-      margin-top: 40px;
-      width: 200px;
-      height: 200px;
-      cursor: pointer;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    .petal-group {
-      transform-origin: 50% 50%;
-      transition: transform 1s ease-in-out;
-    }
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: var(--bg-gradient);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Pacifico", cursive;
+        overflow-x: hidden;
+      }
 
-    .bloom .r1 { transform: rotate(0deg) scale(1.2); }
-    .bloom .r2 { transform: rotate(45deg) scale(1.2); }
-    .bloom .r3 { transform: rotate(90deg) scale(1.2); }
-    .bloom .r4 { transform: rotate(135deg) scale(1.2); }
-    .bloom .r5 { transform: rotate(180deg) scale(1.2); }
-    .bloom .r6 { transform: rotate(225deg) scale(1.2); }
-    .bloom .r7 { transform: rotate(270deg) scale(1.2); }
-    .bloom .r8 { transform: rotate(315deg) scale(1.2); }
+      .card {
+        background: white;
+        padding: 30px 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        animation: popUp 1s ease;
+        z-index: 2;
+        position: relative;
+      }
 
-    .love-note {
-      margin-top: 20px;
-      font-size: 22px;
-      color: #ff3399;
-      font-weight: bold;
-      display: none;
-      animation: fadeInZoom 0.5s ease-in-out, pulse 2s infinite;
-      transform-origin: center;
-    }
+      @keyframes popUp {
+        0% {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-    @keyframes fadeInZoom {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+      .heart {
+        color: #ff4d6d;
+        font-size: 2.5rem;
+        animation: heartbeat 1s infinite;
+      }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
 
-    .message {
-      font-size: 24px;
-      color: #d6336c;
-      margin-top: 20px;
-      animation: fadeIn 1s ease-in-out;
-    }
+      h2 {
+        margin: 10px 0;
+        font-size: 1.5rem;
+      }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+      p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+      }
 
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: #fff;
-      font-size: 1em;
-      user-select: none;
-      z-index: 9999;
-      animation: fall linear infinite;
-    }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+        position: relative;
+      }
 
-    @keyframes fall {
-      0%   { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-  </style>
-</head>
-<body>
+      .button {
+        background: var(--main-pink);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 100px;
+      }
 
-<div class="message">
-  Gửi em yêu của anh 💕<br>
-  Chúc em thi thật tốt nhé!<br>
-  Anh luôn tin bé làm được, cố lên nhaa! 💪
-</div>
+      .button:hover {
+        background: var(--main-pink-dark);
+        transform: scale(1.05);
+      }
 
-<svg id="lotus" viewBox="0 0 100 100">
-  <g id="petals">
-    <g class="petal-group r1"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff99cc"/></g>
-    <g class="petal-group r2"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff85c1"/></g>
-    <g class="petal-group r3"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff69b4"/></g>
-    <g class="petal-group r4"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff4da6"/></g>
-    <g class="petal-group r5"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff3399"/></g>
-    <g class="petal-group r6"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#ff1a8c"/></g>
-    <g class="petal-group r7"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#e60073"/></g>
-    <g class="petal-group r8"><path d="M50 10 Q35 40 50 70 Q65 40 50 10" fill="#cc0066"/></g>
-    <circle cx="50" cy="52" r="6" fill="#ffd700" />
-  </g>
-</svg>
+      .love-image {
+        margin-top: 20px;
+        border-radius: 15px;
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      }
 
-<div class="love-note" id="loveNote">
-  Bé iu của anh ơi, hoa nở là tình anh nở 💗 cố lên nha bé!
-</div>
+      #response {
+        margin-top: 25px;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        line-height: 1.4;
+      }
 
-<script>
-  const lotus = document.getElementById('lotus');
-  const petals = document.getElementById('petals');
-  const note = document.getElementById('loveNote');
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
 
-  lotus.addEventListener('click', () => {
-    petals.classList.add('bloom');
-    note.style.display = 'block';
-  });
+      audio {
+        display: none;
+      }
 
-  // Hiệu ứng tuyết rơi ❄️
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake';
-    snowflake.textContent = '❄️';
-    snowflake.style.left = `${Math.random() * 100}vw`;
-    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
-    document.body.appendChild(snowflake);
-    setTimeout(() => snowflake.remove(), 5000);
-  }
-  setInterval(createSnowflake, 200);
-</script>
+      @media (max-width: 480px) {
+        .card {
+          padding: 25px 15px;
+        }
 
-</body>
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        .heart {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .button {
+          font-size: 0.95rem;
+          padding: 9px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="fireworks"></canvas>
+
+    <div class="card">
+      <div class="heart">❤️</div>
+      <h2>Gửi cậu 💌</h2>
+      <p>Tớ thích cậu... thật đấy 😳👉👈</p>
+      <img
+        class="love-image"
+        src="https://i.pinimg.com/564x/0c/ba/5b/0cba5b3a09d69e799c2b7c22375d1d8b.jpg"
+        alt="Ảnh đôi cute"
+      />
+      <div class="buttons">
+        <button class="button" onclick="replyYes()">CÓ 🥺</button>
+        <button class="button" id="noBtn">KHÔNG 😢</button>
+      </div>
+      <div id="response"></div>
+    </div>
+
+    <audio id="loveSong" loop>
+      <source
+        src="https://cdn.pixabay.com/audio/2023/03/05/audio_b2c2d944d3.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const music = document.getElementById("loveSong");
+      let musicStarted = false;
+
+      function replyYes() {
+        document.getElementById("response").textContent =
+          "Anh iu bé iu  😍💗 thịt bé iu thôi nào  💑";
+        startMusic();
+        launchFireworks();
+      }
+
+      function startMusic() {
+        if (!musicStarted) {
+          music.play();
+          musicStarted = true;
+        }
+      }
+
+      // Nút KHÔNG di chuyển liên tục
+      function moveNoButton() {
+        const x = Math.random() * 300 - 150;
+        const y = Math.random() * 300 - 150;
+        noBtn.style.transition = "transform 0.3s";
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      // Sau 2s bắt đầu chạy loạn mỗi 1 giây
+      setTimeout(() => {
+        moveNoButton();
+        setInterval(moveNoButton, 1000);
+      }, 2000);
+
+      // Không cho bấm nút KHÔNG
+      noBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+      });
+
+      window.addEventListener("click", () => {
+        startMusic();
+      });
+
+      // PHÁO HOA 🎆
+      const canvas = document.getElementById("fireworks");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+
+      function launchFireworks() {
+        for (let i = 0; i < 10; i++) {
+          const x = Math.random() * canvas.width;
+          const y = (Math.random() * canvas.height) / 2;
+          for (let j = 0; j < 50; j++) {
+            particles.push({
+              x,
+              y,
+              radius: Math.random() * 3 + 2,
+              color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+              dx: Math.random() * 6 - 3,
+              dy: Math.random() * 6 - 3,
+              life: 100,
+            });
+          }
+        }
+      }
+
+      function drawFireworks() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+
+          p.x += p.dx;
+          p.y += p.dy;
+          p.life--;
+
+          if (p.life <= 0) particles.splice(i, 1);
+        }
+
+        requestAnimationFrame(drawFireworks);
+      }
+
+      drawFireworks();
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+  </body>
 </html>
